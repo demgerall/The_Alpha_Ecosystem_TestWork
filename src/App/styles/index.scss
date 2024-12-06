@@ -1,2 +1,7 @@
 @use 'scss-reset/reset';
 @use 'variables/globals';
+@use 'mixins/fontMixins';
+
+body {
+    box-sizing: border-box;
+}

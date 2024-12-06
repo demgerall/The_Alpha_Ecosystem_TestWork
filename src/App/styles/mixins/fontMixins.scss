@@ -1,0 +1,78 @@
+@use './../variables/globals';
+
+@mixin header {
+    font-family: var(--font-montserrat);
+    font-size: var(--font-size-header);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--letter-spacing-0);
+}
+
+@mixin header-card {
+    font-family: var(--font-montserrat);
+    font-size: var(--font-size-header-card);
+    font-weight: var(--weight-extrabold);
+    letter-spacing: var(--letter-spacing-0075);
+}
+
+@mixin product-price {
+    font-family: var(--font-montserrat);
+    font-size: var(--font-size-product-price);
+    font-weight: var(--weight-extrabold);
+    letter-spacing: var(--letter-spacing-01);
+}
+
+@mixin product-price-old {
+    font-family: var(--font-montserrat);
+    font-size: var(--font-size-product-price-old);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--letter-spacing-0);
+}
+
+@mixin text-accent {
+    font-family: var(--font-montserrat);
+    font-size: var(--font-size-text-accent);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--letter-spacing--02);
+}
+
+@mixin text-menu {
+    font-family: var(--font-roboto);
+    font-size: var(--font-size-text-menu);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--letter-spacing-0025);
+}
+
+@mixin text-product-description {
+    font-family: var(--font-roboto);
+    font-size: var(--font-size-text-product-description);
+    font-weight: var(--weight-regular);
+    letter-spacing: var(--letter-spacing-0075);
+}
+
+@mixin text-user-nickname {
+    font-family: var(--font-roboto);
+    font-size: var(--font-size-text-user-nickname);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--letter-spacing-0025);
+}
+
+@mixin text-publication-time {
+    font-family: var(--font-roboto);
+    font-size: var(--font-size-text-publication-time);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--letter-spacing-0025);
+}
+
+@mixin text-accent-card {
+    font-family: var(--font-roboto);
+    font-size: var(--font-size-text-accent-card);
+    font-weight: var(--weight-regular);
+    letter-spacing: var(--letter-spacing-0025);
+}
+
+@mixin text-badge {
+    font-family: var(--font-roboto);
+    font-size: var(--font-size-text-badge);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--letter-spacing-0025);
+}
