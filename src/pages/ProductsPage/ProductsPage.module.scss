@@ -1,0 +1,17 @@
+.main {
+    width: 100%;
+    padding: 60px 10vw;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+
+    .heading {
+        font-family: var(--font-montserrat);
+        font-size: var(--font-size-header-card);
+        font-weight: var(--weight-extrabold);
+        letter-spacing: var(--letter-spacing-0075);
+    }
+}

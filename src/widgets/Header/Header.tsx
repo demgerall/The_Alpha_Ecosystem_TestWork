@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
-import styles from './Header.module.scss';
 import { ROUTES } from '@/shared/routes/routes';
+import LOGO from '@/shared/assets/icons/logo.svg';
 
-import LOGO from '@/shared/assets/images/logo.png';
+import styles from './Header.module.scss';
 
 interface HeaderProps {
     className?: string;
@@ -18,12 +18,8 @@ export const Header: React.FC = (props: HeaderProps) => {
         <>
             <header className={classNames(styles.header, [className])}>
                 <Link to={ROUTES.HOME} draggable={false}>
-                    <img
-                        src={LOGO}
-                        className={styles.logo_img}
-                        draggable={false}
-                        alt="Company logo"
-                    />
+                    <LOGO />
+                    LOGO
                 </Link>
                 <Link to={ROUTES.CREATE_PRODUCT} draggable={false}>
                     <p className={styles.link}>Добавить продукт</p>
