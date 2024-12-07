@@ -1,6 +1,8 @@
-.main {
+@use '@/app/styles/mixins/fontMixins' as mixins;
+
+.section {
     width: 100%;
-    padding: 60px 10vw;
+    padding: 40px 10vw;
 
     display: flex;
     flex-flow: column nowrap;
@@ -9,9 +11,22 @@
     gap: 40px;
 
     .heading {
-        font-family: var(--font-montserrat);
-        font-size: var(--font-size-header-card);
-        font-weight: var(--weight-extrabold);
-        letter-spacing: var(--letter-spacing-0075);
+        @include mixins.header;
+    }
+
+    .noProducts {
+        width: 100%;
+
+        @include mixins.header;
+        text-align: center;
+    }
+
+    .paginationBlock {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
     }
 }

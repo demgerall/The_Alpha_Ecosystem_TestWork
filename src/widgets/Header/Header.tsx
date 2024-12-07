@@ -19,10 +19,10 @@ export const Header: React.FC = (props: HeaderProps) => {
             <header className={classNames(styles.header, [className])}>
                 <Link to={ROUTES.HOME} draggable={false}>
                     <LOGO />
-                    LOGO
+                    STORE
                 </Link>
                 <Link to={ROUTES.CREATE_PRODUCT} draggable={false}>
-                    <p className={styles.link}>Добавить продукт</p>
+                    <p className={styles.link}>Create product</p>
                 </Link>
             </header>
         </>

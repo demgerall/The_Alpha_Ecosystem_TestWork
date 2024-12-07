@@ -56,9 +56,9 @@
     letter-spacing: var(--letter-spacing-0025);
 }
 
-@mixin text-publication-time {
+@mixin text-category {
     font-family: var(--font-roboto);
-    font-size: var(--font-size-text-publication-time);
+    font-size: var(--font-size-text-category);
     font-weight: var(--weight-medium);
     letter-spacing: var(--letter-spacing-0025);
 }
@@ -70,7 +70,7 @@
     letter-spacing: var(--letter-spacing-0025);
 }
 
-@mixin text-badge {
+@mixin text-button {
     font-family: var(--font-roboto);
     font-size: var(--font-size-text-badge);
     font-weight: var(--weight-bold);

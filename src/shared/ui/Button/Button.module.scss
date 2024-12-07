@@ -1,0 +1,21 @@
+@use '@/app/styles/mixins/fontMixins' as mixins;
+
+.button {
+    padding: 8px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    @include mixins.text-button;
+    color: var(--monochrome-color-off-white);
+
+    border-radius: 10px;
+    background: linear-gradient(#535664, #202d3a);
+
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        scale: 1.02;
+    }
+}

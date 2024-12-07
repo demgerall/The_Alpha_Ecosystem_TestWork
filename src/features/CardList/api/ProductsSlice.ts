@@ -1,14 +1,15 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-import { productType } from '../types/types';
+import { productType } from '@/entities';
 
 export const getProducts = createAsyncThunk(
-    'products/getProducts',
-    async (_, thunkApi) => {
+    'products/getProductsPage',
+    async (page: number = 0, thunkApi) => {
+        const limit: number = 20;
         try {
             const response = await axios.get(
-                `${import.meta.env.VITE_BASE_URL}/products`,
+                `${import.meta.env.VITE_BASE_URL}/products?offset=${page * limit}&limit=${limit}`,
             );
             return response.data;
         } catch (e) {
@@ -19,12 +20,12 @@ export const getProducts = createAsyncThunk(
 );
 
 interface StateSchema {
-    list: Array<productType>;
+    products: Array<productType>;
     isLoading: boolean;
 }
 
 const initialState: StateSchema = {
-    list: [],
+    products: [],
     isLoading: false,
 };
 
@@ -37,7 +38,7 @@ export const productsSlice = createSlice({
             state.isLoading = true;
         });
         builder.addCase(getProducts.fulfilled, (state, action) => {
-            state.list = action.payload;
+            state.products = action.payload;
             state.isLoading = false;
         });
         builder.addCase(getProducts.rejected, state => {

@@ -1,0 +1,44 @@
+.cardList {
+    width: 100%;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, auto);
+    gap: 20px;
+
+    .cardItem {
+        height: 100%;
+        max-height: 500px;
+
+        display: grid;
+        grid-template-rows: auto 1fr;
+
+        border-radius: 10px;
+        overflow: hidden;
+        -webkit-box-shadow: 2px 2px 6px 0px var(--transparent25-dark-color);
+        -moz-box-shadow: 2px 2px 6px 0px var(--transparent25-dark-color);
+        box-shadow: 2px 2px 6px 0px var(--transparent25-dark-color);
+
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            scale: 1.02;
+        }
+
+        & > a {
+            height: 100%;
+        }
+    }
+
+    .cardItemPlaceholder {
+        height: 100%;
+        max-height: 500px;
+
+        border-radius: 10px;
+        overflow: hidden;
+        -webkit-box-shadow: 2px 2px 6px 0px var(--transparent25-dark-color);
+        -moz-box-shadow: 2px 2px 6px 0px var(--transparent25-dark-color);
+        box-shadow: 2px 2px 6px 0px var(--transparent25-dark-color);
+    }
+}

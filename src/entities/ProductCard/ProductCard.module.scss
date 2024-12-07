@@ -1,0 +1,46 @@
+@use '@/app/styles/mixins/fontMixins' as mixins;
+
+.productImg {
+    width: 100%;
+}
+
+.productInfo {
+    padding: 20px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    gap: 10px;
+
+    color: var(--monochrome-color-off-black);
+
+    .productPrices {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .productNewPrice {
+            @include mixins.product-price;
+        }
+
+        .productOldPrice {
+            @include mixins.product-price-old;
+            text-decoration: line-through;
+            color: var(--monochrome-color-label);
+        }
+    }
+
+    .mainInfo {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 4px;
+
+        .productTitle {
+            @include mixins.header-card;
+        }
+        .productCategory {
+            @include mixins.text-category;
+            color: var(--monochrome-color-label);
+        }
+    }
+}

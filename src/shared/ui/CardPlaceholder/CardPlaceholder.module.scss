@@ -1,0 +1,59 @@
+.cardPlaceholder {
+    height: 430px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--monochrome-color-off-white);
+
+    .preloader {
+        position: relative;
+
+        top: -20%;
+        left: -25%;
+
+        .circle {
+            position: absolute;
+
+            border: 3px solid transparent;
+            border-top-color: var(--primary-color-bg);
+            border-radius: 50%;
+
+            animation: rotate linear infinite;
+
+            &.circleOne {
+                height: 50px;
+                width: 50px;
+                left: 50px;
+                top: 50px;
+                animation-duration: 0.85s;
+            }
+
+            &.circleTwo {
+                height: 75px;
+                width: 75px;
+                top: 38px;
+                left: 38px;
+                animation-duration: 0.95s;
+            }
+
+            &.circleThree {
+                height: 100px;
+                width: 100px;
+                top: 25px;
+                left: 25px;
+                animation-duration: 1.05s;
+            }
+        }
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateZ(360deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
