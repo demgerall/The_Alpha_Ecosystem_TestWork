@@ -1,5 +1,3 @@
-import { omit } from 'lodash';
-
 import { productType } from '@/entities';
 
 export const setProductToFavourite = (product: productType) => ({

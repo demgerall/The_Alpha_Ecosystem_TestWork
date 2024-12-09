@@ -8,19 +8,28 @@ import styles from './CardList.module.scss';
 
 interface CardListProps {
     className?: string;
+    favouriteList?: Array<productType>;
     children?: Array<productType>;
 }
 
 export const CardList = (props: CardListProps) => {
-    const { className = '', children, ...otherProps } = props;
+    const { className = '', favouriteList = [], children } = props;
+
+    const isFavourite = (id: number) => {
+        return favouriteList.some(item => {
+            return item.id === id;
+        });
+    };
 
     return (
         <ul className={classNames(styles.cardList, [className])}>
             {children
-                ? children.map((product, index) => {
+                ? children.map(product => {
                       return (
-                          <li key={index} className={styles.cardItem}>
-                              <ProductCard>{product}</ProductCard>
+                          <li key={product.id} className={styles.cardItem}>
+                              <ProductCard favourite={isFavourite(product.id)}>
+                                  {product}
+                              </ProductCard>
                           </li>
                       );
                   })

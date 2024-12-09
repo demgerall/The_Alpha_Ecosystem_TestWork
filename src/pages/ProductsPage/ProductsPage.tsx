@@ -13,14 +13,13 @@ import DOUBLE_ARROW_LEFT from '@/shared/assets/icons/double_arrow_left.svg';
 import HEART_UNPRESSED from '@/shared/assets/icons/heart_unpressed.svg';
 
 import styles from './ProductsPage.module.scss';
-import { log } from 'console';
 
 interface ProductsPageProps {
     className?: string;
 }
 
 export const ProductsPage: React.FC = (props: ProductsPageProps) => {
-    const { className = '', ...otherProps } = props;
+    const { className = '' } = props;
 
     const dispatch = useAppDispatch();
 
@@ -39,7 +38,9 @@ export const ProductsPage: React.FC = (props: ProductsPageProps) => {
         ({ favouriteProducts }) => favouriteProducts,
     );
 
-    console.log(favouriteProducts);
+    const filteredProducts = showFavourite
+        ? [...favouriteProducts].reverse()
+        : products;
 
     const nextPageChanger = () => {
         if (page < Math.floor(total / 20)) {
@@ -84,12 +85,12 @@ export const ProductsPage: React.FC = (props: ProductsPageProps) => {
                 </Button>
             </div>
 
-            {showFavourite ? (
-                <CardList>{favouriteProducts}</CardList>
-            ) : isLoading ? (
+            {isLoading ? (
                 <CardList />
             ) : (
-                <CardList>{products}</CardList>
+                <CardList favouriteList={favouriteProducts}>
+                    {filteredProducts}
+                </CardList>
             )}
 
             {!showFavourite ? (

@@ -15,16 +15,17 @@ import styles from './ProductCard.module.scss';
 
 interface ProductCardProps {
     className?: string;
+    favourite: boolean;
     children: productType;
 }
 
 export const ProductCard = (props: ProductCardProps) => {
-    const { className = '', children, ...otherProps } = props;
+    const { className = '', favourite, children, ...otherProps } = props;
 
     const { id, title, price, images, category } = children;
 
     const [loaded, setLoaded] = useState(false);
-    const [isFavourite, setIsFavourite] = useState(false);
+    const [isFavourite, setIsFavourite] = useState(favourite);
 
     const dispatch = useAppDispatch();
 

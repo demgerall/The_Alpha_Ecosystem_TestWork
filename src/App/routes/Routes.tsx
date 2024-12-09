@@ -14,6 +14,7 @@ export const AppRoutes: React.FC = () => {
                     element={<Navigate to={'/products'} />}
                 />
                 <Route path={ROUTES.HOME} element={<ProductsPage />} />
+                {/* <Route path={ROUTES.PRODUCT} element={<ProductPage />} /> */}
             </Routes>
         </Suspense>
     );

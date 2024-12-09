@@ -4,6 +4,6 @@ export {
     favouriteSlice,
     setProductToFavourite,
     deleteProductFromFavourite,
-} from './ProductCard/api/favouriteSlice';
+} from './ProductCard/api/favouriteReducers';
 
 export type { productType } from './ProductCard/types/types';
