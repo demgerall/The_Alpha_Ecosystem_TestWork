@@ -10,8 +10,25 @@
     align-items: flex-start;
     gap: 40px;
 
-    .heading {
-        @include mixins.header;
+    .pageHeader {
+        width: 100%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .heading {
+            @include mixins.header;
+
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            & > span {
+                @include mixins.text-label;
+                color: var(--monochrome-color-label);
+            }
+        }
     }
 
     .noProducts {
@@ -28,5 +45,11 @@
         justify-content: center;
         align-items: center;
         gap: 8px;
+
+        .pageNumber {
+            margin: 0 8px;
+
+            @include mixins.header-card;
+        }
     }
 }

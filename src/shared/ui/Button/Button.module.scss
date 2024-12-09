@@ -8,14 +8,37 @@
     gap: 8px;
 
     @include mixins.text-button;
-    color: var(--monochrome-color-off-white);
 
     border-radius: 10px;
-    background: linear-gradient(#535664, #202d3a);
 
     transition: all 0.3s ease-in-out;
 
     &:hover {
         scale: 1.02;
+    }
+
+    &.black {
+        color: var(--monochrome-color-off-white);
+
+        background: linear-gradient(#535664, #202d3a);
+    }
+
+    &.transparent,
+    &.bordered {
+        color: var(--monochrome-color-off-black);
+    }
+
+    &.bordered {
+        border: 2px solid var(--monochrome-color-off-black);
+    }
+
+    &.pressed {
+        border: 2px solid #ca024f;
+
+        color: #ca024f;
+
+        & > svg > path {
+            stroke: #ca024f;
+        }
     }
 }

@@ -17,16 +17,19 @@ export const CardList = (props: CardListProps) => {
     return (
         <ul className={classNames(styles.cardList, [className])}>
             {children
-                ? children.map(product => {
+                ? children.map((product, index) => {
                       return (
-                          <li key={product.id} className={styles.cardItem}>
+                          <li key={index} className={styles.cardItem}>
                               <ProductCard>{product}</ProductCard>
                           </li>
                       );
                   })
-                : [...Array(20)].map(() => {
+                : [...Array(20)].map(index => {
                       return (
-                          <li className={styles.cardItemPlaceholder}>
+                          <li
+                              key={index}
+                              className={styles.cardItemPlaceholder}
+                          >
                               <CardPlaceholder />
                           </li>
                       );
