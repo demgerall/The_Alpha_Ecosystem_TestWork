@@ -1,5 +1,12 @@
 @use './../variables/globals';
 
+@mixin page-header {
+    font-family: var(--font-montserrat);
+    font-size: var(--font-size-page-header);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--letter-spacing-0);
+}
+
 @mixin header {
     font-family: var(--font-montserrat);
     font-size: var(--font-size-header);
@@ -12,6 +19,13 @@
     font-size: var(--font-size-header-card);
     font-weight: var(--weight-extrabold);
     letter-spacing: var(--letter-spacing-0075);
+}
+
+@mixin page-product-price {
+    font-family: var(--font-montserrat);
+    font-size: var(--font-size-page-product-price);
+    font-weight: var(--weight-extrabold);
+    letter-spacing: var(--letter-spacing-01);
 }
 
 @mixin product-price {
@@ -28,10 +42,10 @@
     letter-spacing: var(--letter-spacing-0);
 }
 
-@mixin text-accent {
+@mixin description {
     font-family: var(--font-montserrat);
-    font-size: var(--font-size-text-accent);
-    font-weight: var(--weight-bold);
+    font-size: var(--font-size-text-description);
+    font-weight: var(--weight-regular);
     letter-spacing: var(--letter-spacing--02);
 }
 
@@ -49,9 +63,9 @@
     letter-spacing: var(--letter-spacing-0075);
 }
 
-@mixin text-user-nickname {
+@mixin product-card-title {
     font-family: var(--font-roboto);
-    font-size: var(--font-size-text-user-nickname);
+    font-size: var(--font-size-text-product-card-title);
     font-weight: var(--weight-semibold);
     letter-spacing: var(--letter-spacing-0025);
 }
@@ -74,5 +88,12 @@
     font-family: var(--font-roboto);
     font-size: var(--font-size-text-button);
     font-weight: var(--weight-bold);
+    letter-spacing: var(--letter-spacing-0025);
+}
+
+@mixin text-data {
+    font-family: var(--font-roboto);
+    font-size: var(--font-size-text-data);
+    font-weight: var(--weight-regular);
     letter-spacing: var(--letter-spacing-0025);
 }

@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { ProductsPage } from '@/pages/index';
+import { ProductItemPage, ProductsPage } from '@/pages';
 import { ROUTES } from '@/shared/routes/routes';
 
 export const AppRoutes: React.FC = () => {
@@ -14,7 +14,7 @@ export const AppRoutes: React.FC = () => {
                     element={<Navigate to={'/products'} />}
                 />
                 <Route path={ROUTES.HOME} element={<ProductsPage />} />
-                {/* <Route path={ROUTES.PRODUCT} element={<ProductPage />} /> */}
+                <Route path={ROUTES.PRODUCT} element={<ProductItemPage />} />
             </Routes>
         </Suspense>
     );

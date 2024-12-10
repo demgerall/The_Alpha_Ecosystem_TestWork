@@ -1,0 +1,138 @@
+@use '@/app/styles/mixins/fontMixins' as mixins;
+
+.section {
+    width: 100%;
+    padding: 80px 10vw;
+
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 40px;
+
+    .imagesBlock {
+        flex-basis: 50%;
+
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        gap: 20px;
+
+        .mainImage {
+            width: 100%;
+
+            img {
+                border-radius: 20px;
+                cursor: pointer;
+
+                -webkit-box-shadow: 2px 2px 6px 0px
+                    var(--transparent25-dark-color);
+                -moz-box-shadow: 2px 2px 6px 0px var(--transparent25-dark-color);
+                box-shadow: 2px 2px 6px 0px var(--transparent25-dark-color);
+
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    scale: 1.01;
+                }
+            }
+        }
+
+        .restImages {
+            height: 100%;
+            width: 120px;
+
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            gap: 20px;
+
+            img {
+                width: 100%;
+
+                border-radius: 20px;
+                cursor: pointer;
+
+                -webkit-box-shadow: 2px 2px 6px 0px
+                    var(--transparent25-dark-color);
+                -moz-box-shadow: 2px 2px 6px 0px var(--transparent25-dark-color);
+                box-shadow: 2px 2px 6px 0px var(--transparent25-dark-color);
+
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    scale: 1.02;
+                }
+            }
+        }
+    }
+
+    .infoBlock {
+        flex-basis: 50%;
+
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+
+        .mainInfo {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 20px;
+
+            .productName {
+                @include mixins.page-header;
+            }
+
+            .categoryBlock {
+                @include mixins.product-card-title;
+
+                .productCategory {
+                    padding: 8px;
+                    margin-left: 8px;
+
+                    color: var(--monochrome-color-off-black);
+                    @include mixins.text-category;
+
+                    border: 2px solid var(--monochrome-color-off-black);
+                    border-radius: 10px;
+                }
+            }
+
+            .descriptionBlock {
+                & > h3 {
+                    @include mixins.product-card-title;
+                }
+
+                .productDescription {
+                    @include mixins.description;
+                    text-align: justify;
+                }
+            }
+
+            .priceBlock {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                .newPrice {
+                    @include mixins.page-product-price;
+
+                    & > span {
+                        @include mixins.product-card-title;
+                    }
+                }
+                .oldPrice {
+                }
+            }
+        }
+
+        .dataBlock {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: end;
+
+            .productCreated,
+            .productUpdated {
+                @include mixins.text-data;
+            }
+        }
+    }
+}

@@ -1,9 +1,9 @@
 export { ProductCard } from './ProductCard/ProductCard';
 
 export {
-    favouriteSlice,
+    favouriteReducer,
     setProductToFavourite,
     deleteProductFromFavourite,
-} from './ProductCard/api/favouriteReducers';
+} from './ProductCard/api/favouriteReducer';
 
 export type { productType } from './ProductCard/types/types';

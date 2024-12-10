@@ -17,7 +17,7 @@ const initialState: StateSchema = {
     favouriteProducts: [],
 };
 
-export const favouriteSlice = (
+export const favouriteReducer = (
     state = initialState,
     action: { type: any; payload: any },
 ) => {

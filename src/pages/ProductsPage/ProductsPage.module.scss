@@ -24,6 +24,8 @@
             align-items: center;
             gap: 8px;
 
+            cursor: pointer;
+
             & > span {
                 @include mixins.text-label;
                 color: var(--monochrome-color-label);

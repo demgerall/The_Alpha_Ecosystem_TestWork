@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { deleteProductById } from '@/features';
 import { deleteProductFromFavourite, setProductToFavourite } from '@/entities';
 import { productType } from '@/entities';
 import { Button } from '@/shared/ui/Button';
@@ -43,6 +44,11 @@ export const ProductCard = (props: ProductCardProps) => {
         }
     };
 
+    const deleteCard = (id: number) => {
+        dispatch(deleteProductById(id));
+        dispatch(deleteProductFromFavourite(id));
+    };
+
     return (
         <>
             <div className={styles.cardControl}>
@@ -52,7 +58,10 @@ export const ProductCard = (props: ProductCardProps) => {
                 >
                     {isFavourite ? <HEART_PRESSED /> : <HEART_UNPRESSED />}
                 </Button>
-                <Button buttonStyle={'transparent'} onClick={() => {}}>
+                <Button
+                    buttonStyle={'transparent'}
+                    onClick={() => deleteCard(id)}
+                >
                     <DELETE />
                 </Button>
             </div>
@@ -69,11 +78,7 @@ export const ProductCard = (props: ProductCardProps) => {
                         />
                     )}
                     <img
-                        src={
-                            images[0].includes('[')
-                                ? images[0].slice(1, images[0].length - 1)
-                                : images[0]
-                        }
+                        src={images[0]}
                         className={styles.productImg}
                         alt="Image of product"
                         style={loaded ? {} : { display: 'none' }}
@@ -87,7 +92,7 @@ export const ProductCard = (props: ProductCardProps) => {
                         <p className={styles.productNewPrice}>{price + '$'}</p>
                         {oldPriceChance ? (
                             <p className={styles.productOldPrice}>
-                                {(price * 0.8).toFixed(2) + '$'}
+                                {(price * 1.2).toFixed(2) + '$'}
                             </p>
                         ) : (
                             ''

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
 
 import { CardList, getProducts, getProductsTotal } from '@/features';
@@ -27,20 +27,20 @@ export const ProductsPage: React.FC = (props: ProductsPageProps) => {
     const [showFavourite, setShowFavorite] = useState(false);
     const [isPressed, setIsPressed] = useState(false);
 
-    useEffect(() => {
-        dispatch(getProducts(page));
-        dispatch(getProductsTotal());
-    }, [dispatch, page]);
-
     const { products, isLoading } = useAppSelector(({ products }) => products);
     const { total } = useAppSelector(({ total }) => total);
     const { favouriteProducts } = useAppSelector(
         ({ favouriteProducts }) => favouriteProducts,
     );
 
-    const filteredProducts = showFavourite
-        ? [...favouriteProducts].reverse()
-        : products;
+    useEffect(() => {
+        dispatch(getProducts(page));
+        dispatch(getProductsTotal());
+    }, [dispatch, page]);
+
+    const filteredProducts = useMemo(() => {
+        return showFavourite ? [...favouriteProducts].reverse() : products;
+    }, [products, showFavourite, favouriteProducts]);
 
     const nextPageChanger = () => {
         if (page < Math.floor(total / 20)) {
@@ -72,10 +72,22 @@ export const ProductsPage: React.FC = (props: ProductsPageProps) => {
     return (
         <section className={classNames(styles.section, [className])}>
             <div className={styles.pageHeader}>
-                <h1 className={styles.heading}>
-                    Products{' '}
-                    <span>{`${total > 100 ? Math.floor(total / 100) * 100 + '+' : total}`}</span>{' '}
-                </h1>
+                {showFavourite ? (
+                    <h1
+                        className={styles.heading}
+                        onClick={() => {
+                            toggleShowFavourite();
+                        }}
+                    >
+                        Favourite Products{' '}
+                        <span>{`${favouriteProducts.length > 100 ? Math.floor(favouriteProducts.length / 100) * 100 + '+' : favouriteProducts.length}`}</span>{' '}
+                    </h1>
+                ) : (
+                    <h1 className={styles.heading} onClick={() => setPage(0)}>
+                        Products{' '}
+                        <span>{`${total > 100 ? Math.floor(total / 100) * 100 + '+' : total}`}</span>{' '}
+                    </h1>
+                )}
                 <Button
                     buttonStyle={isPressed ? 'pressed' : 'bordered'}
                     onClick={() => toggleShowFavourite()}
