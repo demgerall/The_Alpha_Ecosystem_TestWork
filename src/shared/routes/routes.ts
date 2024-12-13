@@ -1,6 +1,6 @@
 export const ROUTES = {
-    BASE: '/',
-    HOME: '/products',
-    PRODUCT: '/products/:id',
-    CREATE_PRODUCT: '/create-product',
+    BASE: 'The_Alpha_Ecosystem_TestWork/',
+    HOME: 'The_Alpha_Ecosystem_TestWork/products',
+    PRODUCT: 'The_Alpha_Ecosystem_TestWork/products/:id',
+    CREATE_PRODUCT: 'The_Alpha_Ecosystem_TestWork/create-product',
 };

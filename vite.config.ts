@@ -4,6 +4,7 @@ import svgr from 'vite-plugin-svgr';
 import { resolve } from 'path';
 
 export default defineConfig({
+    base: '/The_Alpha_Ecosystem_TestWork/',
     plugins: [
         react(),
         svgr({
