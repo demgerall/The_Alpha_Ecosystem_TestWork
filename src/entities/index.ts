@@ -1,8 +1,8 @@
 export { ProductCard } from './ProductCard/ProductCard';
 
 export {
-    favouriteReducer,
-    setProductToFavourite,
+    favouritesSlice,
+    addProductToFavourite,
     deleteProductFromFavourite,
 } from './ProductCard/api/favouriteReducer';
 

@@ -1,13 +1,5 @@
 import { productType } from '@/entities';
-
-export const setProductToFavourite = (product: productType) => ({
-    type: 'ADD_PRODUCT_TO_FAVOURITE',
-    payload: product,
-});
-export const deleteProductFromFavourite = (id: number) => ({
-    type: 'DELETE_PRODUCT_FROM_FAVOURITE',
-    payload: id,
-});
+import { createSlice } from '@reduxjs/toolkit';
 
 interface StateSchema {
     favouriteProducts: Array<productType>;
@@ -17,22 +9,24 @@ const initialState: StateSchema = {
     favouriteProducts: [],
 };
 
-export const favouriteReducer = (
-    state = initialState,
-    action: { type: any; payload: any },
-) => {
-    switch (action.type) {
-        case 'ADD_PRODUCT_TO_FAVOURITE':
+export const favouritesSlice = createSlice({
+    name: 'favourites',
+    initialState,
+    reducers: {
+        addProductToFavourite(state, action) {
             return {
                 favouriteProducts: [...state.favouriteProducts, action.payload],
             };
-        case 'DELETE_PRODUCT_FROM_FAVOURITE':
+        },
+        deleteProductFromFavourite(state, action) {
             return {
                 favouriteProducts: state.favouriteProducts.filter(item => {
                     return item.id !== action.payload;
                 }),
             };
-        default:
-            return state;
-    }
-};
+        },
+    },
+});
+
+export const { addProductToFavourite, deleteProductFromFavourite } =
+    favouritesSlice.actions;

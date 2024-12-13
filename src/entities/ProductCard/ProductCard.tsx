@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { deleteProductById } from '@/features';
-import { deleteProductFromFavourite, setProductToFavourite } from '@/entities';
+import { deleteProductFromFavourite, addProductToFavourite } from '@/entities';
 import { productType } from '@/entities';
 import { Button } from '@/shared/ui/Button';
 import { useAppDispatch } from '@/shared/libs/hooks/hooks';
@@ -37,7 +37,7 @@ export const ProductCard = (props: ProductCardProps) => {
     const toggleFavourite = () => {
         if (isFavourite === false) {
             setIsFavourite(true);
-            dispatch(setProductToFavourite(children));
+            dispatch(addProductToFavourite(children));
         } else {
             setIsFavourite(false);
             dispatch(deleteProductFromFavourite(id));

@@ -1,14 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import { categoriesSlice, productsSlice, totalSlice } from '@/features';
-import { favouriteReducer } from '@/entities';
+import { favouritesSlice } from '@/entities';
+// import { favouriteReducer } from '@/entities';
 
 export const store = configureStore({
     reducer: {
         products: productsSlice.reducer,
         categories: categoriesSlice.reducer,
         total: totalSlice.reducer,
-        favouriteProducts: favouriteReducer,
+        favouriteProducts: favouritesSlice.reducer,
     },
     devTools: true,
 });

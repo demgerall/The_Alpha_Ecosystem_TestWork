@@ -9,7 +9,15 @@ import styles from './Textarea.module.scss';
 interface TextareaProps
     extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
     className?: string;
-    name: 'title' | 'images' | 'price' | 'categoryId' | 'description';
+    name:
+        | 'title'
+        | 'image1'
+        | 'image2'
+        | 'image3'
+        | 'image4'
+        | 'price'
+        | 'categoryId'
+        | 'description';
     label: string;
     register: UseFormRegister<FormState>;
     required?: boolean;
