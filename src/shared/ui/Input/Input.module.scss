@@ -1,0 +1,24 @@
+@use '@/app/styles/mixins/fontMixins' as mixins;
+
+.inputBlock {
+    width: 50%;
+
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 4px;
+
+    label {
+        @include mixins.product-card-title;
+    }
+
+    input {
+        padding: 12px;
+
+        border-radius: 10px;
+
+        @include mixins.text-label;
+
+        &::placeholder {
+        }
+    }
+}

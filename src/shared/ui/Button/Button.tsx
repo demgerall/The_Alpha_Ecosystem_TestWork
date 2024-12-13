@@ -30,6 +30,7 @@ export const Button = (props: ButtonProps) => {
                 buttonStyle === 'pressed' ? styles.pressed : '',
             )}
             onClick={onClick}
+            {...otherProps}
         >
             {children}
         </button>

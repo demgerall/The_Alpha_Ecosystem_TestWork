@@ -9,3 +9,9 @@ export type productType = {
     updatedAt?: Date;
     category: { id: number; name: string };
 };
+
+export type categoriesType = {
+    id: number;
+    name: string;
+    image: string;
+};

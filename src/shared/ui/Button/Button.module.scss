@@ -1,7 +1,7 @@
 @use '@/app/styles/mixins/fontMixins' as mixins;
 
 .button {
-    padding: 8px;
+    padding: 10px;
 
     display: flex;
     align-items: center;
@@ -18,6 +18,8 @@
     }
 
     &.black {
+        padding: 12px;
+
         color: var(--monochrome-color-off-white);
 
         background: linear-gradient(#535664, #202d3a);

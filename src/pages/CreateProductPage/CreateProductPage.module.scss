@@ -1,0 +1,17 @@
+@use '@/app/styles/mixins/fontMixins' as mixins;
+
+.section {
+    width: 100%;
+    padding: 40px 10vw;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    .heading {
+        @include mixins.header;
+        text-decoration: underline;
+    }
+}

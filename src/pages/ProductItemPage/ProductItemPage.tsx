@@ -31,10 +31,17 @@ export const ProductItemPage = (props: ProductItemPageProps) => {
         <section className={classNames(styles.section, [className])}>
             <div className={styles.imagesBlock}>
                 <div className={styles.restImages}>
-                    {searchProduct?.images.map((image, index) => {
+                    {searchProduct?.images.map((image: string, index) => {
                         return index !== mainImageIndex ? (
                             <img
-                                src={image}
+                                src={
+                                    image.includes('[') || image.includes(']')
+                                        ? image
+                                              .replace(']', '')
+                                              .replace('[', '')
+                                              .replace('"', '')
+                                        : image
+                                }
                                 alt=""
                                 draggable={false}
                                 onClick={() => {
@@ -48,7 +55,15 @@ export const ProductItemPage = (props: ProductItemPageProps) => {
                 </div>
                 <div className={styles.mainImage}>
                     <img
-                        src={searchProduct?.images[mainImageIndex]}
+                        src={
+                            searchProduct?.images[mainImageIndex].includes('[')
+                                ? searchProduct?.images[mainImageIndex].slice(
+                                      2,
+                                      searchProduct?.images[mainImageIndex]
+                                          .length - 2,
+                                  )
+                                : searchProduct?.images[mainImageIndex]
+                        }
                         alt=""
                         draggable={false}
                     />

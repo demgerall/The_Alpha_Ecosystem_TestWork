@@ -1,0 +1,24 @@
+.form {
+    width: 50%;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    .imageRefsBlock {
+        width: 100%;
+
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .formControl {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+}

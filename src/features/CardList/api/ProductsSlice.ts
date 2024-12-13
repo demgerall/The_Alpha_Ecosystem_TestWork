@@ -49,6 +49,24 @@ export const getProductById = createAsyncThunk(
     },
 );
 
+export const createProduct = createAsyncThunk(
+    'products/createProduct',
+    async (product: {}, thunkApi) => {
+        console.log(product);
+
+        try {
+            const response = await axios.post(
+                `${import.meta.env.VITE_BASE_URL}/products/`,
+                product,
+            );
+            return response.data;
+        } catch (e) {
+            console.error(e);
+            return e;
+        }
+    },
+);
+
 interface StateSchema {
     products: Array<productType>;
     searchProduct: productType | undefined;
@@ -103,6 +121,18 @@ export const productsSlice = createSlice({
             })
             .addCase(getProductById.rejected, state => {
                 state.isLoading = false;
+            })
+            .addCase(createProduct.pending, state => {
+                state.isLoading = true;
+                state.isSuccess = false;
+            })
+            .addCase(createProduct.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isSuccess = true;
+            })
+            .addCase(createProduct.rejected, state => {
+                state.isLoading = false;
+                state.isSuccess = false;
             });
     },
 });

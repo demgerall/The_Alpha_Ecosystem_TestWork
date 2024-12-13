@@ -78,7 +78,14 @@ export const ProductCard = (props: ProductCardProps) => {
                         />
                     )}
                     <img
-                        src={images[0]}
+                        src={
+                            images[0].includes('[') || images[0].includes(']')
+                                ? images[0]
+                                      .replace(']', '')
+                                      .replace('[', '')
+                                      .replace('"', '')
+                                : images[0]
+                        }
                         className={styles.productImg}
                         alt="Image of product"
                         style={loaded ? {} : { display: 'none' }}
